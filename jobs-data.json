@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "company": "LiblibAI（哩布哩布AI）",
+    "position": "资深产品经理",
+    "city": "北京/上海",
+    "summary": "负责文生图AIGC工具类产品的规划与落地，制定产品Roadmap。深入分析用户需求（设计师、创作者等场景），协同算法与工程团队，搭建产品数据指标体系，跟踪AIGC技术趋势。",
+    "url": "https://www.liblib.art/us/joinus",
+    "source": "公司官网",
+    "date": "2026-05-23",
+    "matchNote": "很对口！你十几年的产品运营经验+AIGC硕士完全可以胜任",
+    "status": ""
+  },
+  {
+    "id": 2,
+    "company": "LiblibAI（哩布哩布AI）",
+    "position": "资深增长专家",
+    "city": "北京/上海",
+    "summary": "制定各业务场景下用户增长策略，负责效果广告渠道策略与创意策略，监控优化各渠道投放效果，通过数据驱动找到增长机会与瓶颈。",
+    "url": "https://www.liblib.art/us/joinus",
+    "source": "公司官网",
+    "date": "2026-05-23",
+    "matchNote": "运营经验直接复用，AIGC经验加分",
+    "status": ""
+  },
+  {
+    "id": 3,
+    "company": "LiblibAI（哩布哩布AI）",
+    "position": "运营",
+    "city": "北京",
+    "summary": "负责创作者运营（建联、引入、分层、成长），社区氛围与内容分发，用户增长与破圈营销活动策划。",
+    "url": "https://www.liblib.art/us/joinus",
+    "source": "公司官网",
+    "date": "2026-05-23",
+    "matchNote": "AI方向运营，可转型切入",
+    "status": ""
+  },
+  {
+    "id": 4,
+    "company": "LiblibAI（哩布哩布AI）",
+    "position": "AIGC内容创意",
+    "city": "北京/上海",
+    "summary": "基于AIGC文生图工具策划高质量视觉内容，海外社媒（Instagram、YouTube等）内容运营与风格趋势捕捉。",
+    "url": "https://www.liblib.art/us/joinus",
+    "source": "公司官网",
+    "date": "2026-05-23",
+    "matchNote": "偏创意方向，看你兴趣",
+    "status": ""
+  },
+  {
+    "id": 5,
+    "company": "LiblibAI（哩布哩布AI）",
+    "position": "海外流量增长",
+    "city": "北京/上海",
+    "summary": "负责海外广告投放（Google、Facebook、YouTube等）策略与执行，用户增长与ROI负责，策划广告创意与数据优化。",
+    "url": "https://www.liblib.art/us/joinus",
+    "source": "公司官网",
+    "date": "2026-05-23",
+    "matchNote": "需海外投放经验，看你是否有相关背景",
+    "status": ""
+  }
+]
