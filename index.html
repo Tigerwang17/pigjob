@@ -118,35 +118,48 @@
     .table-wrap {
       background: var(--card);
       border-radius: 14px;
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: visible;
       box-shadow: var(--shadow);
     }
+    .table-wrap::-webkit-scrollbar { height: 6px; }
+    .table-wrap::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+    .table-wrap::-webkit-scrollbar-track { background: #f0f0f0; }
     .job-table { width: 100%; border-collapse: collapse; }
+    .job-table { min-width: 900px; }
     .job-table th {
       background: var(--primary);
       color: white;
       font-size: 12px;
       font-weight: 600;
-      padding: 12px 10px;
+      padding: 10px 8px;
       text-align: left;
       white-space: nowrap;
     }
     .job-table td {
-      padding: 12px 10px;
+      padding: 10px 8px;
       font-size: 13px;
       border-bottom: 1px solid var(--border);
       vertical-align: top;
       line-height: 1.5;
     }
+    .job-table th:nth-child(6), .job-table td:nth-child(6) { min-width: 240px; max-width: 360px; }
     .job-table tr:last-child td { border-bottom: none; }
     .job-table tr:hover td { background: var(--primary-bg); }
     .job-table tr.hidden { display: none; }
 
     .col-date { min-width: 75px; }
 
-    /* 除摘要列外，其他列不换行 */
-    .job-table td { white-space: nowrap; }
-    .job-table td:nth-child(5) { white-space: normal; word-break: break-word; }
+    /* 除摘要列(第6列)外，其他列不换行 */
+    .job-table td:not(:nth-child(6)) { white-space: nowrap; }
+    .job-table td:nth-child(6) { white-space: normal; word-break: break-word; }
+    .job-table th:nth-child(1) { width: 75px; }
+    .job-table th:nth-child(2) { min-width: 100px; }
+    .job-table th:nth-child(3) { min-width: 140px; }
+    .job-table th:nth-child(4) { width: 85px; }
+    .job-table th:nth-child(5) { width: 55px; }
+    .job-table th:nth-child(7) { width: 45px; }
+    .job-table th:nth-child(8) { width: 80px; }
 
     .company-name { font-weight: 700; color: var(--primary); font-size: 14px; }
     .position-name { font-weight: 600; font-size: 14px; }
