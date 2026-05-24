@@ -143,25 +143,27 @@
       vertical-align: top;
       line-height: 1.5;
     }
-    .job-table th:nth-child(6), .job-table td:nth-child(6) { min-width: 240px; max-width: 360px; }
+    .job-table th:nth-child(7), .job-table td:nth-child(7) { min-width: 240px; max-width: 360px; }
     .job-table tr:last-child td { border-bottom: none; }
     .job-table tr:hover td { background: var(--primary-bg); }
     .job-table tr.hidden { display: none; }
 
     .col-date { min-width: 75px; }
 
-    /* 除摘要列(第6列)外，其他列不换行 */
-    .job-table td:not(:nth-child(6)) { white-space: nowrap; }
-    .job-table td:nth-child(6) { white-space: normal; word-break: break-word; }
+    /* 除摘要列(第7列)外，其他列不换行 */
+    .job-table td:not(:nth-child(7)) { white-space: nowrap; }
+    .job-table td:nth-child(7) { white-space: normal; word-break: break-word; }
     .job-table th:nth-child(1) { width: 75px; }
     .job-table th:nth-child(2) { min-width: 100px; }
-    .job-table th:nth-child(3) { min-width: 140px; }
-    .job-table th:nth-child(4) { width: 85px; }
-    .job-table th:nth-child(5) { width: 55px; }
-    .job-table th:nth-child(7) { width: 45px; }
-    .job-table th:nth-child(8) { width: 80px; }
+    .job-table th:nth-child(3) { min-width: 110px; }
+    .job-table th:nth-child(4) { min-width: 140px; }
+    .job-table th:nth-child(5) { width: 85px; }
+    .job-table th:nth-child(6) { width: 55px; }
+    .job-table th:nth-child(8) { width: 45px; }
+    .job-table th:nth-child(9) { width: 80px; }
 
     .company-name { font-weight: 700; color: var(--primary); font-size: 14px; }
+    .brief-text { font-size: 12px; color: var(--text-light); }
     .position-name { font-weight: 600; font-size: 14px; }
     .city-name { font-size: 13px; color: var(--text-light); }
     .salary-text { font-size: 13px; color: #e8927c; font-weight: 600; }
@@ -220,12 +222,13 @@
       }
       .job-table td:nth-of-type(1)::before { content: "收录日期"; }
       .job-table td:nth-of-type(2)::before { content: "公司"; }
-      .job-table td:nth-of-type(3)::before { content: "职位"; }
-      .job-table td:nth-of-type(4)::before { content: "城市"; }
-      .job-table td:nth-of-type(5)::before { content: "薪资"; }
-      .job-table td:nth-of-type(6)::before { content: "摘要"; }
-      .job-table td:nth-of-type(7)::before { content: "链接"; }
-      .job-table td:nth-of-type(8)::before { content: "状态"; }
+      .job-table td:nth-of-type(3)::before { content: "公司简介"; }
+      .job-table td:nth-of-type(4)::before { content: "职位"; }
+      .job-table td:nth-of-type(5)::before { content: "城市"; }
+      .job-table td:nth-of-type(6)::before { content: "薪资"; }
+      .job-table td:nth-of-type(7)::before { content: "摘要"; }
+      .job-table td:nth-of-type(8)::before { content: "链接"; }
+      .job-table td:nth-of-type(9)::before { content: "状态"; }
       .job-table tr {
         margin-bottom: 12px;
         border: 1px solid var(--border);
@@ -276,6 +279,7 @@
         <tr>
           <th>收录日期</th>
           <th>公司</th>
+          <th>公司简介</th>
           <th>职位</th>
           <th>城市</th>
           <th>薪资</th>
@@ -293,7 +297,23 @@
   </div>
 
   <script>
-const JOBS_DATA = [{"id":1,"company":"LiblibAI（哩布哩布AI）","position":"资深产品经理","city":"北京/上海","salary":"","summary":"负责文生图AIGC工具类产品的规划与落地，制定产品Roadmap。深入分析用户需求（设计师、创作者等场景），协同算法与工程团队，搭建产品数据指标体系，跟踪AIGC技术趋势。","url":"https://www.liblib.art/us/joinus","source":"公司官网","date":"2026-05-23","matchNote":"很对口！你十几年的产品运营经验+AIGC硕士完全可以胜任","status":""},{"id":2,"company":"LiblibAI（哩布哩布AI）","position":"资深增长专家","city":"北京/上海","salary":"","summary":"制定各业务场景下用户增长策略，负责效果广告渠道策略与创意策略，监控优化各渠道投放效果，通过数据驱动找到增长机会与瓶颈。","url":"https://www.liblib.art/us/joinus","source":"公司官网","date":"2026-05-23","matchNote":"运营经验直接复用，AIGC经验加分","status":""},{"id":3,"company":"LiblibAI（哩布哩布AI）","position":"运营","city":"北京","salary":"","summary":"负责创作者运营（建联、引入、分层、成长），社区氛围与内容分发，用户增长与破圈营销活动策划。","url":"https://www.liblib.art/us/joinus","source":"公司官网","date":"2026-05-23","matchNote":"AI方向运营，可转型切入","status":""},{"id":4,"company":"LiblibAI（哩布哩布AI）","position":"AIGC内容创意","city":"北京/上海","salary":"","summary":"基于AIGC文生图工具策划高质量视觉内容，海外社媒（Instagram、YouTube等）内容运营与风格趋势捕捉。","url":"https://www.liblib.art/us/joinus","source":"公司官网","date":"2026-05-23","matchNote":"偏创意方向，看你兴趣","status":""},{"id":5,"company":"LiblibAI（哩布哩布AI）","position":"海外流量增长","city":"北京/上海","salary":"","summary":"负责海外广告投放（Google、Facebook、YouTube等）策略与执行，用户增长与ROI负责，策划广告创意与数据优化。","url":"https://www.liblib.art/us/joinus","source":"公司官网","date":"2026-05-23","matchNote":"需海外投放经验，看你是否有相关背景","status":""},{"id":6,"company":"Gate.io","position":"AI Agent Product Manager","city":"香港","salary":"","summary":"负责AI Agent产品的规划与落地，设计AI驱动的交易与金融服务产品，协同算法团队开发智能代理功能，持续跟踪AI Agent技术趋势。","url":"https://www.linkedin.com/jobs/search/?keywords=AI+Product+Manager&location=Hong+Kong","source":"LinkedIn","date":"2026-05-24","matchNote":"🔥 AI Agent方向，你的AIGC硕士背景直接对口！香港岗位","status":""},{"id":7,"company":"Gate.io","position":"Product Manager – Trading (AI-Native)","city":"香港","salary":"","summary":"打造AI-Native的交易产品，将AI能力深度嵌入交易流程，设计智能化交易体验，推动AI在金融场景的创新应用。","url":"https://www.linkedin.com/jobs/search/?keywords=AI+Product+Manager&location=Hong+Kong","source":"LinkedIn","date":"2026-05-24","matchNote":"🔥 AI原生产品设计，职业转型的好机会！香港坐班","status":""},{"id":8,"company":"Binance","position":"AI Chatbot Product Manager","city":"香港","salary":"","summary":"负责AI聊天机器人的产品规划与迭代，设计对话式AI体验，优化用户与AI交互的产品流程，跟踪大模型技术在客服/用户交互场景的应用。","url":"https://www.linkedin.com/jobs/search/?keywords=AI+product+operations&location=Hong+Kong","source":"LinkedIn","date":"2026-05-24","matchNote":"🔥 AI对话产品，你的AIGC背景很契合！全球最大交易所","status":""},{"id":9,"company":"Binance","position":"Product Manager - AI","city":"香港","salary":"","summary":"负责AI相关产品的全生命周期管理，定义产品目标和路线图，与工程/数据团队协作推动AI功能落地，运用数据驱动产品决策。","url":"https://www.linkedin.com/jobs/search/?keywords=AI+product+operations&location=Hong+Kong","source":"LinkedIn","date":"2026-05-24","matchNote":"🔥 纯AI PM岗位，和你转型目标完美契合！","status":""},{"id":10,"company":"Crypto.com","position":"Senior Product Manager, AI Transformation","city":"香港","salary":"","summary":"主导公司AI数字化转型的产品战略，推动AI技术在各业务线的应用落地，与跨部门团队协作定义AI产品路线图，实现业务效率与用户体验的智能化升级。","url":"https://www.linkedin.com/jobs/search/?keywords=AI+product+operations&location=Hong+Kong","source":"LinkedIn","date":"2026-05-24","matchNote":"🔥 AI转型PM，十几年的运营经验+AI背景是加分项！","status":""},{"id":11,"company":"Reap","position":"Technical Product Manager, AI Platform","city":"香港（鰂魚涌）","salary":"","summary":"负责AI平台的技术产品管理，定义AI能力的产品化方案，协同工程团队构建AI基础设施，推动AI金融科技产品的创新。","url":"https://hk.linkedin.com/company/reapglobal","source":"LinkedIn","date":"2026-05-24","matchNote":"香港本地AI平台岗位，鰂魚涌办公，很方便！","status":""},{"id":12,"company":"东亚银行 (BEA)","position":"Section Head & Senior Manager, AI Services - Innovation Office","city":"香港","salary":"","summary":"在创新办公室主导AI服务战略，负责AI在银行业务中的创新应用，管理AI项目落地，推动传统银行的AI数字化转型。","url":"https://www.linkedin.com/jobs/search/?keywords=AI+product+operations&location=Hong+Kong","source":"LinkedIn","date":"2026-05-24","matchNote":"银行AI数字化转型，适合有运营经验想切AI的你！","status":""},{"id":13,"company":"SleekFlow","position":"Product Manager","city":"香港（數碼港）","salary":"","summary":"SleekFlow是AI对话式CRM平台（获Tiger Global投资），总部新加坡，香港有办公室。负责产品功能规划与迭代，优化AI Agent的用户体验，推动对话式AI在销售/客服场景的应用。","url":"https://www.sleekflow.io","source":"LinkedIn","date":"2026-05-24","matchNote":"🔥 香港AI初创，AIGC硕士背景+运营经验很匹配！","status":""},{"id":14,"company":"SleekFlow","position":"AI GTM Enablement Lead","city":"香港（數碼港）","salary":"","summary":"负责AI产品的Go-to-Market策略，推动AI Agent产品的市场推广与客户落地，协同产品与销售团队实现AI产品的商业化增长。","url":"https://www.sleekflow.io","source":"LinkedIn","date":"2026-05-24","matchNote":"运营+市场的综合岗，你的产品运营经验可以复用","status":""},{"id":15,"company":"OKX","position":"Vice President of Product, AI and Agent","city":"香港","salary":"","summary":"负责AI和Agent产品线的VP级别岗位，制定AI产品战略，领导产品团队，推动AI驱动的交易和金融服务创新。","url":"https://www.linkedin.com/jobs/search/?keywords=AI+product+operations&location=Hong+Kong","source":"LinkedIn","date":"2026-05-24","matchNote":"级别较高（VP），但AI+Agent方向值得关注","status":""}];
+const JOBS_DATA = [
+  {"id":1,"company":"LiblibAI（哩布哩布AI）","position":"资深产品经理","city":"北京/上海","salary":"","brief":"AIGC图像创作平台","summary":"负责文生图AIGC工具类产品的规划与落地，制定产品Roadmap。深入分析用户需求（设计师、创作者等场景），协同算法与工程团队，搭建产品数据指标体系，跟踪AIGC技术趋势。","url":"https://www.liblib.art/us/joinus","source":"公司官网","date":"2026-05-23","matchNote":"很对口！你十几年的产品运营经验+AIGC硕士完全可以胜任","status":""},
+  {"id":2,"company":"LiblibAI（哩布哩布AI）","position":"资深增长专家","city":"北京/上海","salary":"","brief":"AIGC图像创作平台","summary":"制定各业务场景下用户增长策略，负责效果广告渠道策略与创意策略，监控优化各渠道投放效果，通过数据驱动找到增长机会与瓶颈。","url":"https://www.liblib.art/us/joinus","source":"公司官网","date":"2026-05-23","matchNote":"运营经验直接复用，AIGC经验加分","status":""},
+  {"id":3,"company":"LiblibAI（哩布哩布AI）","position":"运营","city":"北京","salary":"","brief":"AIGC图像创作平台","summary":"负责创作者运营（建联、引入、分层、成长），社区氛围与内容分发，用户增长与破圈营销活动策划。","url":"https://www.liblib.art/us/joinus","source":"公司官网","date":"2026-05-23","matchNote":"AI方向运营，可转型切入","status":""},
+  {"id":4,"company":"LiblibAI（哩布哩布AI）","position":"AIGC内容创意","city":"北京/上海","salary":"","brief":"AIGC图像创作平台","summary":"基于AIGC文生图工具策划高质量视觉内容，海外社媒（Instagram、YouTube等）内容运营与风格趋势捕捉。","url":"https://www.liblib.art/us/joinus","source":"公司官网","date":"2026-05-23","matchNote":"偏创意方向，看你兴趣","status":""},
+  {"id":5,"company":"LiblibAI（哩布哩布AI）","position":"海外流量增长","city":"北京/上海","salary":"","brief":"AIGC图像创作平台","summary":"负责海外广告投放（Google、Facebook、YouTube等）策略与执行，用户增长与ROI负责，策划广告创意与数据优化。","url":"https://www.liblib.art/us/joinus","source":"公司官网","date":"2026-05-23","matchNote":"需海外投放经验，看你是否有相关背景","status":""},
+  {"id":6,"company":"Gate.io","position":"AI Agent Product Manager","city":"香港","salary":"","brief":"全球数字资产交易平台","summary":"负责AI Agent产品的规划与落地，设计AI驱动的交易与金融服务产品，协同算法团队开发智能代理功能，持续跟踪AI Agent技术趋势。","url":"https://www.linkedin.com/jobs/search/?keywords=AI+Product+Manager&location=Hong+Kong","source":"LinkedIn","date":"2026-05-24","matchNote":"🔥 AI Agent方向，你的AIGC硕士背景直接对口！香港岗位","status":""},
+  {"id":7,"company":"Gate.io","position":"Product Manager – Trading (AI-Native)","city":"香港","salary":"","brief":"全球数字资产交易平台","summary":"打造AI-Native的交易产品，将AI能力深度嵌入交易流程，设计智能化交易体验，推动AI在金融场景的创新应用。","url":"https://www.linkedin.com/jobs/search/?keywords=AI+Product+Manager&location=Hong+Kong","source":"LinkedIn","date":"2026-05-24","matchNote":"🔥 AI原生产品设计，职业转型的好机会！香港坐班","status":""},
+  {"id":8,"company":"Binance","position":"AI Chatbot Product Manager","city":"香港","salary":"","brief":"全球最大加密交易所","summary":"负责AI聊天机器人的产品规划与迭代，设计对话式AI体验，优化用户与AI交互的产品流程，跟踪大模型技术在客服/用户交互场景的应用。","url":"https://www.linkedin.com/jobs/search/?keywords=AI+product+operations&location=Hong+Kong","source":"LinkedIn","date":"2026-05-24","matchNote":"🔥 AI对话产品，你的AIGC背景很契合！全球最大交易所","status":""},
+  {"id":9,"company":"Binance","position":"Product Manager - AI","city":"香港","salary":"","brief":"全球最大加密交易所","summary":"负责AI相关产品的全生命周期管理，定义产品目标和路线图，与工程/数据团队协作推动AI功能落地，运用数据驱动产品决策。","url":"https://www.linkedin.com/jobs/search/?keywords=AI+product+operations&location=Hong+Kong","source":"LinkedIn","date":"2026-05-24","matchNote":"🔥 纯AI PM岗位，和你转型目标完美契合！","status":""},
+  {"id":10,"company":"Crypto.com","position":"Senior Product Manager, AI Transformation","city":"香港","salary":"","brief":"加密支付与交易平台","summary":"主导公司AI数字化转型的产品战略，推动AI技术在各业务线的应用落地，与跨部门团队协作定义AI产品路线图，实现业务效率与用户体验的智能化升级。","url":"https://www.linkedin.com/jobs/search/?keywords=AI+product+operations&location=Hong+Kong","source":"LinkedIn","date":"2026-05-24","matchNote":"🔥 AI转型PM，十几年的运营经验+AI背景是加分项！","status":""},
+  {"id":11,"company":"Reap","position":"Technical Product Manager, AI Platform","city":"香港（鰂魚涌）","salary":"","brief":"香港AI金融科技公司","summary":"负责AI平台的技术产品管理，定义AI能力的产品化方案，协同工程团队构建AI基础设施，推动AI金融科技产品的创新。","url":"https://hk.linkedin.com/company/reapglobal","source":"LinkedIn","date":"2026-05-24","matchNote":"香港本地AI平台岗位，鰂魚涌办公，很方便！","status":""},
+  {"id":12,"company":"东亚银行 (BEA)","position":"Section Head & Senior Manager, AI Services - Innovation Office","city":"香港","salary":"","brief":"香港老牌商业银行","summary":"在创新办公室主导AI服务战略，负责AI在银行业务中的创新应用，管理AI项目落地，推动传统银行的AI数字化转型。","url":"https://www.linkedin.com/jobs/search/?keywords=AI+product+operations&location=Hong+Kong","source":"LinkedIn","date":"2026-05-24","matchNote":"银行AI数字化转型，适合有运营经验想切AI的你！","status":""},
+  {"id":13,"company":"SleekFlow","position":"Product Manager","city":"香港（數碼港）","salary":"","brief":"AI对话式CRM平台","summary":"SleekFlow是AI对话式CRM平台（获Tiger Global投资），总部新加坡，香港有办公室。负责产品功能规划与迭代，优化AI Agent的用户体验，推动对话式AI在销售/客服场景的应用。","url":"https://www.sleekflow.io","source":"LinkedIn","date":"2026-05-24","matchNote":"🔥 香港AI初创，AIGC硕士背景+运营经验很匹配！","status":""},
+  {"id":14,"company":"SleekFlow","position":"AI GTM Enablement Lead","city":"香港（數碼港）","salary":"","brief":"AI对话式CRM平台","summary":"负责AI产品的Go-to-Market策略，推动AI Agent产品的市场推广与客户落地，协同产品与销售团队实现AI产品的商业化增长。","url":"https://www.sleekflow.io","source":"LinkedIn","date":"2026-05-24","matchNote":"运营+市场的综合岗，你的产品运营经验可以复用","status":""},
+  {"id":15,"company":"OKX","position":"Vice President of Product, AI and Agent","city":"香港","salary":"","brief":"全球领先Web3平台","summary":"负责AI和Agent产品线的VP级别岗位，制定AI产品战略，领导产品团队，推动AI驱动的交易和金融服务创新。","url":"https://www.linkedin.com/jobs/search/?keywords=AI+product+operations&location=Hong+Kong","source":"LinkedIn","date":"2026-05-24","matchNote":"级别较高（VP），但AI+Agent方向值得关注","status":""}
+];
     let jobsData = [];
     let currentField = 'all';
 
@@ -360,6 +380,7 @@ const JOBS_DATA = [{"id":1,"company":"LiblibAI（哩布哩布AI）","position":"
         return `<tr>
           <td><span class="date-text">${esc(j.date || '—')}</span></td>
           <td><span class="company-name">${esc(j.company)}</span></td>
+          <td><span class="brief-text">${j.brief ? esc(j.brief) : '—'}</span></td>
           <td><span class="position-name">${esc(j.position)}</span></td>
           <td><span class="city-name">${esc(j.city)}</span></td>
           <td><span class="salary-text">${j.salary ? esc(j.salary) : '—'}</span></td>
