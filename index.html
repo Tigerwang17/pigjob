@@ -151,6 +151,7 @@
     .company-name { font-weight: 700; color: var(--primary); font-size: 14px; }
     .position-name { font-weight: 600; font-size: 14px; }
     .city-name { font-size: 13px; color: var(--text-light); }
+    .salary-text { font-size: 13px; color: #e8927c; font-weight: 600; }
     .date-text { font-size: 12px; color: var(--text-light); white-space: nowrap; }
     .summary-text { font-size: 13px; color: var(--text); line-height: 1.6; }
     .summary-text .match-note {
@@ -177,6 +178,7 @@
     .status-select.default { color: #bbb; }
     .status-select.interested { color: #1565c0; font-weight: 600; background: #e3f2fd; }
     .status-select.applied { color: #2e7d32; font-weight: 600; background: #e8f5e9; }
+    .status-select.not-interested { color: #757575; font-weight: 600; background: #f5f5f5; }
     .status-select.rejected { color: #c62828; font-weight: 600; background: #fce4ec; }
 
     .footer {
@@ -207,9 +209,10 @@
       .job-table td:nth-of-type(2)::before { content: "公司"; }
       .job-table td:nth-of-type(3)::before { content: "职位"; }
       .job-table td:nth-of-type(4)::before { content: "城市"; }
-      .job-table td:nth-of-type(5)::before { content: "摘要"; }
-      .job-table td:nth-of-type(6)::before { content: "链接"; }
-      .job-table td:nth-of-type(7)::before { content: "状态"; }
+      .job-table td:nth-of-type(5)::before { content: "薪资"; }
+      .job-table td:nth-of-type(6)::before { content: "摘要"; }
+      .job-table td:nth-of-type(7)::before { content: "链接"; }
+      .job-table td:nth-of-type(8)::before { content: "状态"; }
       .job-table tr {
         margin-bottom: 12px;
         border: 1px solid var(--border);
@@ -262,6 +265,7 @@
           <th>公司</th>
           <th>职位</th>
           <th>城市</th>
+          <th>薪资</th>
           <th>职位摘要</th>
           <th>链接</th>
           <th>查阅状态</th>
@@ -301,7 +305,7 @@
         renderJobs();
       } catch(e) {
         document.getElementById('jobBody').innerHTML =
-          '<tr><td colspan="7" style="text-align:center;padding:40px;color:#888;">⏳ 数据加载中……</td></tr>';
+          '<tr><td colspan="8" style="text-align:center;padding:40px;color:#888;">⏳ 数据加载中……</td></tr>';
       }
     }
 
@@ -337,7 +341,7 @@
 
       const tbody = document.getElementById('jobBody');
       if (filtered.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:40px;color:#888;font-size:14px;">😶 没有找到匹配的岗位</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:40px;color:#888;font-size:14px;">😶 没有找到匹配的岗位</td></tr>';
         document.getElementById('filterCount').textContent = '显示 0 个';
         document.getElementById('totalJobs').textContent = jobsData.length;
         return;
@@ -350,6 +354,7 @@
           <td><span class="company-name">${esc(j.company)}</span></td>
           <td><span class="position-name">${esc(j.position)}</span></td>
           <td><span class="city-name">${esc(j.city)}</span></td>
+          <td><span class="salary-text">${j.salary ? esc(j.salary) : '—'}</span></td>
           <td>
             <div class="summary-text">
               ${esc(j.summary)}
@@ -361,7 +366,8 @@
             <select class="status-select ${sc}" onchange="updateStatus(${j.id}, this)">
               <option value="" ${j.status === '' ? 'selected' : ''}>—</option>
               <option value="感兴趣" ${j.status === '感兴趣' ? 'selected' : ''}>⭐ 感兴趣</option>
-              <option value="已投递" ${j.status === '已投递' ? 'selected' : ''}>📮 已投递</option>
+              <option value="已投递" ${j.status === '已投递' ? 'selected' : ''}>➡️ 已投递</option>
+              <option value="不感兴趣" ${j.status === '不感兴趣' ? 'selected' : ''}>🙅 不感兴趣</option>
               <option value="已拒绝" ${j.status === '已拒绝' ? 'selected' : ''}>❌ 已拒绝</option>
             </select>
           </td>
@@ -374,7 +380,7 @@
 
     function statusClass(status) {
       if (!status) return 'default';
-      const map = { '感兴趣': 'interested', '已投递': 'applied', '已拒绝': 'rejected' };
+      const map = { '感兴趣': 'interested', '已投递': 'applied', '不感兴趣': 'not-interested', '已拒绝': 'rejected' };
       return map[status] || 'default';
     }
 
