@@ -225,46 +225,53 @@
       .search-row .count { font-size: 13px; }
       .field-tab { font-size: 12px; padding: 4px 10px; }
 
+      /* Reset table to block layout */
+      .table-wrap {
+        overflow: visible;
+      }
       .job-table, .job-table thead, .job-table tbody,
       .job-table tr, .job-table td, .job-table th { display: block; }
       .job-table thead { display: none; }
-      .job-table { min-width: unset; }
+      .job-table { min-width: unset; width: 100%; }
 
       .job-table tr {
         margin-bottom: 14px;
-        border: 1px solid var(--border);
+        border: 1px solid #e8e0db;
         border-radius: 12px;
-        overflow: hidden;
+        overflow: visible;
         background: white;
         box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        width: 100%;
       }
 
       .job-table td {
         padding: 7px 12px;
-        border-bottom: 1px solid #f5f5f5;
+        border-bottom: 1px solid #f2edeb;
         position: relative;
-        padding-left: 80px;
+        padding-left: 72px;
         font-size: 13px;
         white-space: normal !important;
         word-break: break-word;
+        overflow: visible;
+        height: auto;
+        min-height: auto;
       }
       .job-table td:last-child { border-bottom: none; }
 
       .job-table td::before {
         position: absolute; left: 12px; top: 7px;
-        font-weight: 600; color: var(--text-light); font-size: 11px;
-        text-transform: uppercase;
+        font-weight: 600; color: #b0a5a0; font-size: 11px;
         letter-spacing: 0.5px;
       }
-      .job-table td:nth-of-type(1)::before { content: "📅 日期"; }
-      .job-table td:nth-of-type(2)::before { content: "🏢 公司"; }
-      .job-table td:nth-of-type(3)::before { content: "📋 简介"; }
-      .job-table td:nth-of-type(4)::before { content: "💼 职位"; }
-      .job-table td:nth-of-type(5)::before { content: "📍 城市"; }
-      .job-table td:nth-of-type(6)::before { content: "💰 薪资"; }
-      .job-table td:nth-of-type(7)::before { content: "📝 摘要"; }
-      .job-table td:nth-of-type(8)::before { content: "🔗 链接"; }
-      .job-table td:nth-of-type(9)::before { content: "📌 状态"; }
+      .job-table td:nth-of-type(1)::before { content: "📅"; }
+      .job-table td:nth-of-type(2)::before { content: "🏢"; }
+      .job-table td:nth-of-type(3)::before { content: "📋"; }
+      .job-table td:nth-of-type(4)::before { content: "💼"; }
+      .job-table td:nth-of-type(5)::before { content: "📍"; }
+      .job-table td:nth-of-type(6)::before { content: "💰"; }
+      .job-table td:nth-of-type(7)::before { content: "📝"; }
+      .job-table td:nth-of-type(8)::before { content: "🔗"; }
+      .job-table td:nth-of-type(9)::before { content: "📌"; }
 
       .company-name { font-size: 15px; }
       .position-name { font-size: 14px; }
@@ -296,8 +303,8 @@
       .search-area { padding: 10px; }
       .field-tabs { gap: 4px; }
       .field-tab { font-size: 11px; padding: 3px 8px; }
-      .job-table td { padding-left: 72px; font-size: 12px; }
-      .job-table td::before { font-size: 10px; }
+      .job-table td { padding-left: 60px; font-size: 12px; }
+      .job-table td::before { font-size: 10px; left: 8px; }
     }
   </style>
 </head>
