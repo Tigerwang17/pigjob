@@ -146,25 +146,25 @@
       vertical-align: top;
       line-height: 1.5;
     }
-    .job-table th:nth-child(7), .job-table td:nth-child(7) { min-width: 240px; max-width: 360px; }
+    .job-table th:nth-child(6), .job-table td:nth-child(6) { min-width: 240px; max-width: 360px; }
     .job-table tr:last-child td { border-bottom: none; }
     .job-table tr:hover td { background: var(--primary-bg); }
     .job-table tr.hidden { display: none; }
 
     .col-date { min-width: 75px; }
 
-    /* 除摘要列(第7列)外，其他列不换行 */
-    .job-table td:not(:nth-child(7)) { white-space: nowrap; }
-    .job-table td:nth-child(7) { white-space: normal; word-break: break-word; }
+    /* 除摘要列(第6列)外，其他列不换行 */
+    .job-table td:not(:nth-child(6)) { white-space: nowrap; }
+    .job-table td:nth-child(6) { white-space: normal; word-break: break-word; }
     .job-table th:nth-child(1) { width: 75px; }
-    .job-table th:nth-child(2) { min-width: 100px; }
-    .job-table th:nth-child(3) { min-width: 110px; }
-    .job-table th:nth-child(4) { width: 150px; max-width: 190px; }
-    .job-table td:nth-child(4) { white-space: normal; word-break: break-word; max-width: 190px; }
-    .job-table th:nth-child(5) { width: 85px; }
-    .job-table th:nth-child(6) { width: 55px; }
-    .job-table th:nth-child(8) { width: 45px; }
-    .job-table th:nth-child(9) { width: 80px; }
+    .job-table th:nth-child(2) { min-width: 140px; max-width: 220px; }
+    .job-table td:nth-child(2) { white-space: normal; word-break: break-word; }
+    .job-table th:nth-child(3) { width: 150px; max-width: 190px; }
+    .job-table td:nth-child(3) { white-space: normal; word-break: break-word; max-width: 190px; }
+    .job-table th:nth-child(4) { width: 85px; }
+    .job-table th:nth-child(5) { width: 55px; }
+    .job-table th:nth-child(7) { width: 45px; }
+    .job-table th:nth-child(8) { width: 80px; }
 
     .company-name { font-weight: 700; color: var(--primary); font-size: 14px; }
     .brief-text { font-size: 12px; color: var(--text-light); }
@@ -266,13 +266,12 @@
       }
       .job-table td:nth-of-type(1)::before { content: "📅"; }
       .job-table td:nth-of-type(2)::before { content: "🏢"; }
-      .job-table td:nth-of-type(3)::before { content: "📋"; }
-      .job-table td:nth-of-type(4)::before { content: "💼"; }
-      .job-table td:nth-of-type(5)::before { content: "📍"; }
-      .job-table td:nth-of-type(6)::before { content: "💰"; }
-      .job-table td:nth-of-type(7)::before { content: "📝"; }
-      .job-table td:nth-of-type(8)::before { content: "🔗"; }
-      .job-table td:nth-of-type(9)::before { content: "📌"; }
+      .job-table td:nth-of-type(3)::before { content: "💼"; }
+      .job-table td:nth-of-type(4)::before { content: "📍"; }
+      .job-table td:nth-of-type(5)::before { content: "💰"; }
+      .job-table td:nth-of-type(6)::before { content: "📝"; }
+      .job-table td:nth-of-type(7)::before { content: "🔗"; }
+      .job-table td:nth-of-type(8)::before { content: "📌"; }
 
       .company-name { font-size: 15px; }
       .position-name { font-size: 14px; }
@@ -349,7 +348,6 @@
         <tr>
           <th>收录日期</th>
           <th>公司</th>
-          <th>公司简介</th>
           <th>职位</th>
           <th>城市</th>
           <th>薪资</th>
@@ -872,7 +870,7 @@ const JOBS_DATA = [
 
       const tbody = document.getElementById('jobBody');
       if (filtered.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:40px;color:#888;font-size:14px;">😶 没有找到匹配的岗位</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:40px;color:#888;font-size:14px;">😶 没有找到匹配的岗位</td></tr>';
         document.getElementById('filterCount').textContent = '显示 0 个';
         document.getElementById('totalJobs').textContent = jobsData.length;
         return;
@@ -882,8 +880,7 @@ const JOBS_DATA = [
         const sc = statusClass(j.status);
         return `<tr>
           <td><span class="date-text">${esc(j.date || '—')}</span></td>
-          <td><span class="company-name">${esc(j.company)}</span></td>
-          <td><span class="brief-text">${j.brief ? esc(j.brief) : '—'}</span></td>
+          <td><span class="company-name">${esc(j.company)}</span>${j.brief ? `<br><span class="brief-text">${esc(j.brief)}</span>` : ''}</td>
           <td><span class="position-name">${esc(j.position)}</span></td>
           <td><span class="city-name">${esc(j.city)}</span></td>
           <td><span class="salary-text">${j.salary ? esc(j.salary) : '—'}</span></td>
