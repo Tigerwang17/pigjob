@@ -318,6 +318,10 @@
     <div class="header-right">
       <span>已收录 <strong id="totalJobs">0</strong> 个岗位</span>
       <span>更新：<strong id="lastUpdate">2026-05-26 17:40</strong></span>
+      <span style="display:flex;align-items:center;gap:4px;">
+        <span id="syncMsg" style="font-size:11px;opacity:0;transition:opacity 0.3s;"></span>
+        <button onclick="setupToken()" style="background:none;border:1px solid #ddd;border-radius:6px;padding:3px 8px;font-size:12px;cursor:pointer;color:#888;">🔑 设置同步</button>
+      </span>
     </div>
   </div>
 
@@ -921,10 +925,90 @@ const JOBS_DATA = [
       saveStatuses();
     }
 
+    let syncTimer = null;
+    const SYNC_OWNER = 'Tigerwang17';
+    const SYNC_REPO = 'pigjob';
+    const SYNC_BRANCH = 'main';
+    const SYNC_PATH = 'status-sync.json';
+
     function saveStatuses() {
-      localStorage.setItem('tigerJobStatuses',
-        JSON.stringify(jobsData.map(j => ({ id: j.id, status: j.status })))
-      );
+      const data = jobsData.map(j => ({ id: j.id, status: j.status }));
+      localStorage.setItem('tigerJobStatuses', JSON.stringify(data));
+      // Auto-sync to GitHub (debounced 3s)
+      clearTimeout(syncTimer);
+      syncTimer = setTimeout(() => syncToGitHub(data), 3000);
+    }
+
+    function getGitHubToken() {
+      return localStorage.getItem('tigerGithubToken') || '';
+    }
+
+    function showSyncMsg(msg, ok) {
+      const el = document.getElementById('syncMsg');
+      if (!el) return;
+      el.textContent = msg;
+      el.style.color = ok ? '#2e7d32' : '#c62828';
+      el.style.opacity = '1';
+      clearTimeout(el._hide);
+      el._hide = setTimeout(() => { el.style.opacity = '0'; }, 4000);
+    }
+
+    async function syncToGitHub(data) {
+      const token = getGitHubToken();
+      if (!token) return; // No token configured, skip sync
+
+      try {
+        // First get the current file SHA (if exists)
+        let sha = null;
+        try {
+          const getRes = await fetch(`https://api.github.com/repos/${SYNC_OWNER}/${SYNC_REPO}/contents/${SYNC_PATH}`, {
+            headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+          });
+          if (getRes.ok) {
+            const existing = await getRes.json();
+            sha = existing.sha;
+          }
+        } catch(e) { /* File might not exist yet */ }
+
+        const content = btoa(unescape(encodeURIComponent(JSON.stringify({ statuses: data, updated: new Date().toISOString() }, null, 2))));
+
+        const putRes = await fetch(`https://api.github.com/repos/${SYNC_OWNER}/${SYNC_REPO}/contents/${SYNC_PATH}`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': 'token ' + token,
+            'Content-Type': 'application/json',
+            'Accept': 'application/vnd.github.v3+json'
+          },
+          body: JSON.stringify({
+            message: '🐷 同步状态 ' + new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Hong_Kong' }),
+            content: content,
+            sha: sha || undefined,
+            branch: SYNC_BRANCH
+          })
+        });
+
+        if (putRes.ok) {
+          showSyncMsg('✅ 状态已同步到云端', true);
+        } else {
+          const err = await putRes.json();
+          showSyncMsg('❌ 同步失败: ' + (err.message || '未知错误'), false);
+        }
+      } catch(e) {
+        showSyncMsg('❌ 同步异常: ' + e.message, false);
+      }
+    }
+
+    function setupToken() {
+      const existing = getGitHubToken();
+      const token = prompt(existing ? '更新GitHub Token (留空不变):' : '请输入GitHub Personal Access Token (用于同步状态到云端):');
+      if (token === null) return;
+      if (token.trim()) {
+        localStorage.setItem('tigerGithubToken', token.trim());
+        showSyncMsg('✅ Token已保存，下次改状态会自动同步', true);
+        // Trigger a sync now
+        const data = jobsData.map(j => ({ id: j.id, status: j.status }));
+        syncToGitHub(data);
+      }
     }
 
     function loadSavedStatuses() {
