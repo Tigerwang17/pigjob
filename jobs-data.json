@@ -27,7 +27,7 @@
     "status": "",
     "brief": "AIGC图像创作平台"
   },
-  {
+    {
     "id": 3,
     "company": "LiblibAI（哩布哩布AI）",
     "position": "运营",
@@ -474,5 +474,19 @@
     "matchNote": "🔥🔥 LinkedIn中等匹配！纯正AI PM岗！NAHC猎头代招，可先投递后了解客户信息",
     "status": "",
     "brief": "B2B AI公司，客户含纳斯达克上市公司"
+  },
+  {
+    "id": 35,
+    "company": "LiblibAI（哩布哩布AI）",
+    "position": "设计专家",
+    "city": "北京/上海",
+    "salary": "",
+    "summary": "品牌视觉革新：搭建全链路品牌视觉体系，持续提升品牌辨识度；用户体验深耕：主导产品UI/UX设计优化；技术融合探索：推动设计与AIGC技术深度融合。",
+    "url": "https://www.liblib.art/us/joinus",
+    "source": "公司官网",
+    "date": "2026-06-03",
+    "matchNote": "LiblibAI新岗位，设计专家方向，偏品牌视觉和UI/UX，虽然不是直接对应你的运营+AI背景，但如果对设计感兴趣也可以看看",
+    "status": "",
+    "brief": "AIGC图像创作平台"
   }
 ]
