@@ -488,5 +488,47 @@
     "matchNote": "LiblibAI新岗位，设计专家方向，偏品牌视觉和UI/UX，虽然不是直接对应你的运营+AI背景，但如果对设计感兴趣也可以看看",
     "status": "",
     "brief": "AIGC图像创作平台"
+  },
+  {
+    "id": 36,
+    "company": "LiblibAI（哩布哩布AI）",
+    "position": "强化学习智能体研究员",
+    "city": "上海",
+    "salary": "",
+    "summary": "从事强化学习与大语言模型智能体在AIGC的相关研究，包括训练和应用；设计并实现基于RL的智能体系统，构建完整的Agentic workflow，推动智能体在多任务、多模态场景下的表现。",
+    "url": "https://www.liblib.art/us/joinus",
+    "source": "公司官网",
+    "date": "2026-07-12",
+    "matchNote": "技术研究岗，非PM方向。如果你对Agent技术底层感兴趣可关注，了解RL+LLM Agent的技术趋势有助于AI PM的工作。",
+    "status": "",
+    "brief": "AIGC图像创作平台"
+  },
+  {
+    "id": 37,
+    "company": "LiblibAI（哩布哩布AI）",
+    "position": "Agent算法工程师",
+    "city": "上海",
+    "salary": "",
+    "summary": "深入研究LLM在内容创作场景中的推理与生成能力，构建端到端内容创作系统，涵盖用户意图识别、知识检索、内容生成与风格偏好对齐，通过指令微调与偏好对齐优化模型适应性。",
+    "url": "https://www.liblib.art/us/joinus",
+    "source": "公司官网",
+    "date": "2026-07-12",
+    "matchNote": "技术研发岗，非PM方向。你的Agent搭建经验（自动播客系统）与此相关，了解算法能帮你在PM面试中更好地与技术团队沟通。",
+    "status": "",
+    "brief": "AIGC图像创作平台"
+  },
+  {
+    "id": 38,
+    "company": "LiblibAI（哩布哩布AI）",
+    "position": "AI Agent研发工程师",
+    "city": "上海",
+    "salary": "",
+    "summary": "开发稳定、高效的多模态视觉生成Agent，支持文本/草图/参考图混合输入，应用于广告素材、电商设计、社交媒体等内容生成场景。",
+    "url": "https://www.liblib.art/us/joinus",
+    "source": "公司官网",
+    "date": "2026-07-12",
+    "matchNote": "技术研发岗，非PM方向。了解多模态Agent技术趋势对AI PM面试有帮助。",
+    "status": "",
+    "brief": "AIGC图像创作平台"
   }
 ]
